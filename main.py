@@ -80,8 +80,21 @@ def draw_buttons():
         pygame.draw.rect(display, (255, 255, 255), (620, 100, 100, 60), 5)
         if pygame.mouse.get_pressed()[0]:
             run = False
+            
+    reset = pygame.Surface([100, 60])
+    reset.fill((0, 0, 200))
+    display.blit(reset, (620, 180))
 
+    if 620 < mouse_pos[0] < 620+100 and 180 < mouse_pos[1] < 180+60:
+        pygame.draw.rect(display, (255, 255, 255), (620, 180, 100, 60), 5)
+        if pygame.mouse.get_pressed()[0]:
+            run = False
+            resetGrid()
 
+def resetGrid():
+    global grid
+    grid = [[random.choice([0, 1]) for _ in range(30)] for _ in range(30)]
+    
 while not done:
     display.fill(0)
 
