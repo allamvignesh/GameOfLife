@@ -95,6 +95,7 @@ def resetGrid():
     global grid
     grid = [[random.choice([0, 1]) for _ in range(30)] for _ in range(30)]
     
+    
 while not done:
     display.fill(0)
 
